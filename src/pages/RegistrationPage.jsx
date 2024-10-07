@@ -6,7 +6,7 @@ const RegistrationPage = ({courses, onCourseAdd}) => {
     const addBtnHandler = (id) => {
         let course = courses.find(courseItem => courseItem.id === id);
         if (course) {
-            onCourseAdd(course); // Call the parent's function with the selected course
+            onCourseAdd(course); 
         }
     }
 

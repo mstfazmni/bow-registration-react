@@ -37,7 +37,7 @@
     },
     {
         "id": 5,
-        "Programs": "Web Development",
+        "Programs": "Software Development",
         "Terms": "Fall 2024",
         "Descriptions": "Master frontend and backend web development.",
         "StartDate": "2024-09-01",
@@ -46,7 +46,7 @@
     },
     {
         "id": 6,
-        "Programs": "Data Science",
+        "Programs": "Software Development",
         "Terms": "Winter 2025",
         "Descriptions": "Learn the fundamentals of data science and AI.",
         "StartDate": "2025-01-15",
@@ -55,7 +55,7 @@
     },
     {
         "id": 7,
-        "Programs": "Cybersecurity",
+        "Programs": "Software Development",
         "Terms": "Summer 2025",
         "Descriptions": "Explore network security and ethical hacking.",
         "StartDate": "2025-06-05",
@@ -64,7 +64,7 @@
     },
     {
         "id": 8,
-        "Programs": "Game Development",
+        "Programs": "Software Development",
         "Terms": "Fall 2024",
         "Descriptions": "Design and develop games using Unity and Unreal Engine.",
         "StartDate": "2024-09-01",
@@ -73,7 +73,7 @@
     },
     {
         "id": 9,
-        "Programs": "Cloud Computing",
+        "Programs": "Software Development",
         "Terms": "Winter 2025",
         "Descriptions": "Dive into AWS, Azure, and Google Cloud.",
         "StartDate": "2025-01-12",
@@ -82,7 +82,7 @@
     },
     {
         "id": 10,
-        "Programs": "Artificial Intelligence",
+        "Programs": "Software Development",
         "Terms": "Fall 2025",
         "Descriptions": "Specialize in AI algorithms and applications.",
         "StartDate": "2025-09-02",
@@ -91,7 +91,7 @@
     },
     {
         "id": 11,
-        "Programs": "Blockchain Development",
+        "Programs": "Software Development",
         "Terms": "Spring 2025",
         "Descriptions": "Learn about blockchain technology and smart contracts.",
         "StartDate": "2025-03-01",
@@ -100,7 +100,7 @@
     },
     {
         "id": 12,
-        "Programs": "DevOps Engineering",
+        "Programs": "Software Development",
         "Terms": "Summer 2025",
         "Descriptions": "Master CI/CD pipelines and cloud automation.",
         "StartDate": "2025-06-10",

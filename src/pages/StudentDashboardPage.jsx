@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react';
+import { Link } from 'react-router-dom';
 import './StudentDashboardPage.css';
 import CourseCard from '../components/CourseCard';
 
@@ -18,7 +19,12 @@ const StudentDashboardPage = ({studentFirstName, studentLastName, studentEmail, 
                     <p className='st-fname'>First Name: {studentFirstName}</p>
                     <p className='st-lName'>Last Name: {studentLastName}</p>
                     <p className='st-eMail'>E-mail: {studentEmail}</p>
-                    <button className='btn-registration'>Registration</button> <br></br>
+                    <Link to='/registration'>
+                    <button className='btn-registration'>Registration</button>
+                    </Link> 
+                    
+                    <br></br>
+
                     <button className='btn-contact'>Contact</button>
 
                     {/* Displaying the courses which were chosen by the st */}
