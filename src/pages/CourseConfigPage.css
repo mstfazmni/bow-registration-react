@@ -1,0 +1,44 @@
+.course-list-page-container{
+    padding: 20px;
+}
+label{
+    margin-bottom: 6px;
+}
+.btn-delete{
+    border: 0;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #0d6efd;
+}
+.btn-delete:hover{
+    background-color: rgb(212, 5, 5);
+    color: white;
+}
+.btn-edit{
+    border: 0;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #0d6efd;
+    margin: 20px;
+}
+.btn-edit:hover{
+    background-color: rgb(212, 208, 5);
+    color: white;
+}
+.btn-newCourse{
+    border: 0;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #0d6efd;
+}
+.btn-newCourse:hover{
+    background-color: #14eb26;
+    color: white;
+}
+textarea{
+    width: 400px;
+    min-height: 100px;
+}

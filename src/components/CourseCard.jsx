@@ -1,6 +1,6 @@
 import React from "react";
 
-const CourseCard = ({id,Programs,Terms,Descriptions, StartDate, EndDate, Fees, showDeleteButton, showAddButton,onDelete,onAdd}) => {
+const CourseCard = ({id,Programs,Terms,Descriptions, StartDate, EndDate, Fees, showDeleteButton, showAddButton, showEditButton, onDelete, onAdd, onEdit}) => {
     
     return(
         <div className="course-card">
@@ -12,7 +12,8 @@ const CourseCard = ({id,Programs,Terms,Descriptions, StartDate, EndDate, Fees, s
                 <p>End Date: {EndDate}</p>
                 <p>Fees: {Fees}</p>
                 {showDeleteButton && <button className="btn-delete" onClick={onDelete}>Delete</button>}
-                {showAddButton && <button className="btn-add" onClick={onAdd}>Add</button>}        
+                {showAddButton && <button className="btn-add" onClick={onAdd}>Add</button>}   
+                {showEditButton && <button className="btn-edit" onClick={onEdit}>Edit</button>}  
         </div>
     );
 };

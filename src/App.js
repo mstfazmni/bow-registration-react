@@ -8,6 +8,8 @@ import SignupPage from './pages/SignupPage';
 import StudentDashboardPage from './pages/StudentDashboardPage';
 import RegistrationPage from './pages/RegistrationPage';
 import CourseListingPage from './pages/CourseListingPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
+import CourseConfigPage from './pages/CourseConfigPage';
 //importing components from components folder
 import CourseCard from './components/CourseCard';
 import Header from './components/Header';
@@ -21,6 +23,10 @@ function App() {
   const studentFirstName = "Mostafa";
   const studentLastName = "Zamani"
   const studentEmail = "m.zamani031@mybvc.ca"
+
+  const adminFirstName = "Adam";
+  const adminLastName = "Workie";
+  const adminEmail = "a.workie221@mybvc.ca";
 // ====================
 const [courses, setCourses] = useState([]);
 
@@ -65,6 +71,18 @@ const deleteBtnHandler = (id) => {
   });
 };
 
+const deleteCourse = (id) => {
+  
+}
+
+const editCourse = (id) => {
+  
+}
+
+const newCourse = () => {
+  
+}
+
   return (
   <div>
       <BrowserRouter>
@@ -78,6 +96,8 @@ const deleteBtnHandler = (id) => {
         <Route path='/studentdashboard' element={<StudentDashboardPage studentFirstName={studentFirstName} studentLastName={studentLastName} studentEmail={studentEmail} chosenCourses={chosenCourses} onDelete={deleteBtnHandler}/>} />
         <Route path='/Registration' element={<RegistrationPage courses={courses} onCourseAdd={handleChosenCourses} />} />
         <Route path='/courselisting' element={<CourseListingPage courses={courses} />} />
+        <Route path='/courseconfig' element={<CourseConfigPage courses={courses} onCourseDelete={deleteCourse} onNewCourse={newCourse} onCourseEdit={editCourse} />} />
+        <Route path='/admindashboard' element={<AdminDashboardPage studentFirstName={studentFirstName} studentLastName={studentLastName} studentEmail={studentEmail} chosenCourses={chosenCourses} />} />
       </Routes>
 
       <Footer></Footer>
