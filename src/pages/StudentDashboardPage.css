@@ -1,6 +1,8 @@
 .dashboard-container{
     display: flex;
     padding: 20px;
+    flex-direction: column;
+    width: 100%;
 }
 .st-info{
     padding: 20px;
@@ -9,10 +11,10 @@
     text-align: center;
 }
 .course-card-list{
-    flex: 3;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    width: 100%;
     padding: 0px 20px;
     
 }
@@ -24,11 +26,16 @@
 
 .course-card-list{
     flex: 2;
+    margin-top: 20px;
 }
 .course-card{
     border: 0.5px solid rgb(230, 219, 219);
     padding: 20px;
     width: 450px;
+    margin-bottom: 15px;
+    flex: 1 1 30%;
+    min-width: 100%;
+    box-sizing: border-box;
 }
 .btn-delete{
     border: 0;
@@ -54,4 +61,13 @@
 .btn-registration:hover,
 .btn-contact:hover{
     background-color: #387be0;
+}
+
+input[type="text"], select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px; 
+    border: 1px solid rgb(230, 219, 219);
+    border-radius: 5px;
 }
