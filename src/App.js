@@ -11,7 +11,7 @@ import CourseListingPage from './pages/CourseListingPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import CourseConfigPage from './pages/CourseConfigPage';
 //importing components from components folder
-import CourseCard from './components/CourseCard';
+// import CourseCard from './components/CourseCard';
 import Header from './components/Header';
 import Footer from './components/Footer';
 //importing bootstrap (first install it with: npm install bootstrap)
@@ -41,12 +41,13 @@ useEffect( ()=> {
 }, []);
 
 
-
 const [chosenCourses, setChosenCourses] = useState(() => {
   // Retrieve from local storage if available
   const storedCourses = localStorage.getItem('chosenCourses');
   return storedCourses ? JSON.parse(storedCourses) : [];
 });
+
+
 
 // Callback to handle data from RegistrationPage
 const handleChosenCourses = (course) => {
@@ -72,16 +73,17 @@ const deleteBtnHandler = (id) => {
 };
 
 const deleteCourse = (id) => {
-  
+  setCourses(courses.filter((course) => course.id !== id))
 }
 
-const editCourse = (id) => {
-  
+const editCourse = (modified) => {
+  setCourses([...courses.filter((course) => course.id !== modified.id), modified])
 }
 
-const newCourse = () => {
-  
+const newCourse = (course) => {
+    setCourses([...courses, course])
 }
+
 
   return (
   <div>
@@ -97,7 +99,7 @@ const newCourse = () => {
         <Route path='/Registration' element={<RegistrationPage courses={courses} onCourseAdd={handleChosenCourses} />} />
         <Route path='/courselisting' element={<CourseListingPage courses={courses} />} />
         <Route path='/courseconfig' element={<CourseConfigPage courses={courses} onCourseDelete={deleteCourse} onNewCourse={newCourse} onCourseEdit={editCourse} />} />
-        <Route path='/admindashboard' element={<AdminDashboardPage studentFirstName={studentFirstName} studentLastName={studentLastName} studentEmail={studentEmail} chosenCourses={chosenCourses} />} />
+        <Route path='/admindashboard' element={<AdminDashboardPage adminFirstName={adminFirstName} adminLastName={adminLastName} adminEmail={adminEmail}/>} />
       </Routes>
 
       <Footer></Footer>
