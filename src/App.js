@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage';
 import StudentDashboardPage from './pages/StudentDashboardPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
 import RegistrationPage from './pages/RegistrationPage';
 import CourseListingPage from './pages/CourseListingPage';
 //importing components from components folder
@@ -18,9 +19,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  const studentFirstName = "Mostafa";
-  const studentLastName = "Zamani"
-  const studentEmail = "m.zamani031@mybvc.ca"
+  const [userName, setUserName] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [session, setSession] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState("Login");
 // ====================
 const [courses, setCourses] = useState([]);
 
@@ -69,15 +71,17 @@ const deleteBtnHandler = (id) => {
   <div>
       <BrowserRouter>
 
-      <Header></Header>
+      <Header logInName={loggedInUser}></Header>
 
       <Routes>
         <Route path='/' element={<Navigate to="/home"/>}/>
         <Route path='/home' element={<HomePage/>}/>
-        <Route path="/signup" element={<SignupPage/>}/> 
-        <Route path='/studentdashboard' element={<StudentDashboardPage studentFirstName={studentFirstName} studentLastName={studentLastName} studentEmail={studentEmail} chosenCourses={chosenCourses} onDelete={deleteBtnHandler}/>} />
+        <Route path="/signup" element={<SignupPage  setUserName={setUserName} 
+              setSession={setSession} setIsAdmin={setIsAdmin} setLoggedInUser={setLoggedInUser}/>}/> 
+        <Route path='/studentdashboard' element={<StudentDashboardPage studentFirstName={'deepu'} studentLastName={'poly'} studentEmail={'123@gmail.com'} chosenCourses={chosenCourses} onDelete={deleteBtnHandler}/>} />
         <Route path='/Registration' element={<RegistrationPage courses={courses} onCourseAdd={handleChosenCourses} />} />
         <Route path='/courselisting' element={<CourseListingPage courses={courses} />} />
+        <Route path='/admin' element={<AdminDashboardPage />} />
       </Routes>
 
       <Footer></Footer>

@@ -2,8 +2,12 @@ import React from "react";
 // Import Link from react-router-dom to use bootstrap and replacing <a href="#"> with <Link to="/">
 import { Link } from "react-router-dom";
 import './Header.css'; 
+import  {useEffect,useState} from "react";
 
-const Header = () => {
+const Header = ({logInName}) => {
+
+    
+
     return (
         <div>
             <div className="b-example-divider"></div>
@@ -43,7 +47,7 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard" className="nav-link text-white">
+                                    <Link to="/signup" className="nav-link text-white">
                                         <svg
                                             className="bi d-block mx-auto mb-1"
                                             width="24"
@@ -51,7 +55,7 @@ const Header = () => {
                                         >
                                             <use xlinkHref="#speedometer2" />
                                         </svg>
-                                        Login
+                                        {logInName}
                                     </Link>
                                 </li>
                             </ul>
