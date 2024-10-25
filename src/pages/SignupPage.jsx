@@ -3,9 +3,8 @@ import studentImg from '../assets/student.jpg';
 import adminImg from '../assets/admin.jpg';
 import './SignupPage.css'
 import { useNavigate } from 'react-router-dom';
-import header from '../components/Header.jsx';
 
-const SignupPage = ({setUserName, setSession, setIsAdmin, setLoggedInUser}) => {
+const SignupPage = ({setUserName, setSession, setIsAdmin, setIsLoggedIn, setIsGuest}) => {
 
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -20,8 +19,10 @@ const SignupPage = ({setUserName, setSession, setIsAdmin, setLoggedInUser}) => {
     const [phone, setPhone] = useState("");
     const [studentId, setStudentId] = useState("");
     const [isAdmin, setIsadmin] = useState(false);
-
+    const [program, setProgram] = useState(0);
+    const [term, setTerm] = useState("");
     
+
     function student(){
       return(
         <div className='lContainer'>
@@ -117,6 +118,40 @@ const SignupPage = ({setUserName, setSession, setIsAdmin, setLoggedInUser}) => {
               <p>Phone Number</p>
               <input type="number" placeholder='phone' onChange={(e)=>{setPhone(e.target.value)}}/>
             </div>
+            <div className="program">
+              <input type="text" placeholder='Software Developmnet' readOnly/>
+            </div>
+
+            {/* program info */}
+            <div className="programType">
+              <select 
+                name="programType" 
+                id="programType" 
+                value={program} // Set the selected value
+                onChange={(e) => setProgram(e.target.value)} // Update state on change
+              >
+                <option value="default">Program Type</option>
+                <option value="Diploma (2 years)">Diploma (2 years)</option>
+                <option value="Post-Diploma (1 year)">Post-Diploma (1 year)</option>
+                <option value="Certificate (6 months)">Certificate (6 months)</option>
+              </select>
+            </div>
+
+    
+            <div className="term">
+              <select 
+                name="term" 
+                id="term"
+                value={term} // Set the selected value
+                onChange={(e) => setTerm(e.target.value)} // Update state on change
+              >
+                <option value="default">Select Term</option>
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="fall">Fall</option>
+                <option value="winter">Winter</option>
+              </select>
+            </div>
             <div className="studentId">
               <p>Student ID / Admin ID</p>
               <input type="number" placeholder='student ID' onChange={(e)=>{setStudentId(e.target.value)}}/>
@@ -153,17 +188,22 @@ const SignupPage = ({setUserName, setSession, setIsAdmin, setLoggedInUser}) => {
     
         // Check if the user is an admin
         if (user.isAdmin) {
+          // Save session
+          localStorage.setItem('loggedInUser', JSON.stringify(user));
           alert('Admin login successful');
+          setIsAdmin(true);
+          setSession("Logout");
+          setIsLoggedIn("Logout")
+          setIsGuest(false);
           navigate('/admin');
-          setLoggedInUser("Logout");
-        } else {
+
+      } else {
           alert('Please use the student portal to log in');
-        }
-      } catch (error) {
-        console.error('Error logging in:', error);
       }
-    };
-    
+  } catch (error) {
+      console.error('Error logging in:', error);
+  }
+};
 
     const studentLoginBtnFunc = async () => {
       try {
@@ -182,26 +222,30 @@ const SignupPage = ({setUserName, setSession, setIsAdmin, setLoggedInUser}) => {
         }
     
         // Check if the user is an admin or a student
-        if (user.isAdmin) {
-          alert('Please use the admin portal to log in');
-          // Optionally, navigate to the admin portal
-          // navigate('/adminportal');
-        } else {
+        if (!user.isAdmin) {
+          // Save session
+          localStorage.setItem('loggedInUser', JSON.stringify(user));
+          localStorage.setItem('loggedInEmail', user.email);
+          localStorage.setItem('loggedInFirstName', user.firstname);
+          localStorage.setItem('loggedInLastName', user.lastname);
+          setSession("Logout");
+          setIsAdmin(false);
+        setFirstName(user.firstname);
+        setLastName(user.lastname);
+        setEmail(user.email);
+        setIsLoggedIn("Logout")
           alert('Student login successful');
-          setLoggedInUser("Logout")
+          setIsGuest(false);
           navigate('/studentdashboard');
-        }
-      } catch (error) {
-        console.error('Error logging in:', error);
+      } else {
+          alert('Please use the admin portal to log in');
       }
-    };
+  } catch (error) {
+      console.error('Error logging in:', error);
+  }
+};
+    const handleRegister = () => {
     
-
-    const handleRegister = async () => {
-      // Retrieve any existing users from localStorage
-      const users = JSON.parse(localStorage.getItem('users')) || [];
-    
-      // Create a new user object with the input values
       const newUser = {
         firstname: firstName,
         lastname: lastName,
@@ -210,22 +254,39 @@ const SignupPage = ({setUserName, setSession, setIsAdmin, setLoggedInUser}) => {
         phone: phone,
         studentId: studentId,
         isAdmin: isAdmin,
+        program: program,
+        term: term,
       };
     
-    
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+
+      if (!Array.isArray(users)) {
+        users = [];
+    }
       users.push(newUser);
     
       
       localStorage.setItem('users', JSON.stringify(users));
+
+      localStorage.setItem('loggedInUser', JSON.stringify(newUser));
     
+    setUserName(`${firstName} ${lastName}`);
+    setFirstName(firstName);
+    setLastName(lastName);
+    setEmail(email);
+    setIsAdmin(isAdmin);
+    setSession('Logout');
+    setIsLoggedIn("Logout")
+
+
       alert('Registration successful');
       
       if (isAdmin) {
         navigate('/admin');
-        setLoggedInUser("Logout")
+        setIsGuest(false);
       } else {
         navigate('/studentdashboard');
-        setLoggedInUser("Logout")
+        setIsGuest(false);
       }
     };
     
