@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CourseCard from './CourseCard';
+import ('./SearchCoursesComponent.css')
 
 const SearchCoursesComponent = ({ courses, onCourseAdd }) => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +20,7 @@ const SearchCoursesComponent = ({ courses, onCourseAdd }) => {
     );
     
     return (
-        <div>
+        <div className="search-courses-container">
             <input
                 type="text"
                 placeholder="Search by Course Name"
@@ -40,7 +41,7 @@ const SearchCoursesComponent = ({ courses, onCourseAdd }) => {
                 ))}
             </select>
 
-            <div>
+            <div className="course-card-list">
             {filteredCourses.length > 0 ? (
                     filteredCourses.map(course => (
                         <CourseCard 

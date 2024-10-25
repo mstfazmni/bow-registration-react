@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "Code": "SODV2301",
         "Course": "Introduction to Programming",
         "Program": "Diploma (2 years)",
@@ -9,6 +10,7 @@
         "Description": "Learn the basics of programming using C#."
     },
     {
+        "id": 2,
         "Code": "SODV2302",
         "Course": "Web Development Fundamentals",
         "Program": "Diploma (2 years)",
@@ -18,6 +20,7 @@
         "Description": "Master HTML, CSS, and JavaScript for web development."
     },
     {
+        "id": 3,
         "Code": "SODV2303",
         "Course": "Database Management Systems",
         "Program": "Diploma (2 years)",
@@ -27,6 +30,7 @@
         "Description": "Explore relational databases and SQL."
     },
     {
+        "id": 4,
         "Code": "SODV2304",
         "Course": "Mobile Application Development",
         "Program": "Diploma (2 years)",
@@ -36,6 +40,7 @@
         "Description": "Develop applications for Android and iOS platforms."
     },
     {
+        "id": 5,
         "Code": "SODV2305",
         "Course": "Software Engineering Principles",
         "Program": "Diploma (2 years)",
@@ -45,6 +50,7 @@
         "Description": "Learn software development methodologies and lifecycle."
     },
     {
+        "id": 6,
         "Code": "SODV2306",
         "Course": "Data Structures and Algorithms",
         "Program": "Diploma (2 years)",
@@ -54,6 +60,7 @@
         "Description": "Understand data structures and algorithm design."
     },
     {
+        "id": 7,
         "Code": "SODV2307",
         "Course": "Full-Stack Web Development",
         "Program": "Diploma (2 years)",
@@ -63,6 +70,7 @@
         "Description": "Build complete web applications from front to back."
     },
     {
+        "id": 8,
         "Code": "SODV2308",
         "Course": "Game Development Basics",
         "Program": "Diploma (2 years)",
@@ -72,6 +80,7 @@
         "Description": "Create simple games using Unity."
     },
     {
+        "id": 9,
         "Code": "SODV2311",
         "Course": "Advanced Data Science",
         "Program": "Post-Diploma (1 year)",
@@ -81,6 +90,7 @@
         "Description": "Explore machine learning techniques and data analysis."
     },
     {
+        "id": 10,
         "Code": "SODV2312",
         "Course": "DevOps Practices",
         "Program": "Post-Diploma (1 year)",
@@ -90,6 +100,7 @@
         "Description": "Learn CI/CD and cloud automation tools."
     },
     {
+        "id": 11,
         "Code": "SODV2313",
         "Course": "Blockchain Development",
         "Program": "Post-Diploma (1 year)",
@@ -99,6 +110,7 @@
         "Description": "Understand blockchain technology and smart contracts."
     },
     {
+        "id": 12,
         "Code": "SODV2314",
         "Course": "Artificial Intelligence Basics",
         "Program": "Post-Diploma (1 year)",
@@ -108,6 +120,7 @@
         "Description": "Explore AI concepts and applications."
     },
     {
+        "id": 13,
         "Code": "SODV2315",
         "Course": "Web Development Essentials",
         "Program": "Certificate (6 months)",
@@ -117,6 +130,7 @@
         "Description": "Learn HTML, CSS, and JavaScript for web development."
     },
     {
+        "id": 14,
         "Code": "SODV2316",
         "Course": "Introduction to Programming with Python",
         "Program": "Certificate (6 months)",
@@ -126,6 +140,7 @@
         "Description": "Get started with programming using Python."
     },
     {
+        "id": 15,
         "Code": "SODV2317",
         "Course": "Data Science Fundamentals",
         "Program": "Certificate (6 months)",
@@ -135,6 +150,7 @@
         "Description": "Understand data analysis and visualization techniques."
     },
     {
+        "id": 16,
         "Code": "SODV2318",
         "Course": "Introduction to Cybersecurity",
         "Program": "Certificate (6 months)",

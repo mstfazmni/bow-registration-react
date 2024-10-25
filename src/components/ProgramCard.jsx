@@ -11,7 +11,6 @@ const ProgramCard = ({ Code, Program, Term,Department, Description, Fees, StartD
             <p>Start Date: {StartDate}</p>
             <p>End Date: {EndDate}</p>
             <p>Fees: ${Fees}</p>
-            <button onClick={() => onAdd({ Code, Program, Department, Term, Description, StartDate, EndDate, Fees })}>Add</button>
         </div>
     );
 };

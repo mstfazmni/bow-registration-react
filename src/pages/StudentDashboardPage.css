@@ -1,23 +1,37 @@
 .dashboard-container{
     display: flex;
     padding: 20px;
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column; 
 }
 .st-info{
     padding: 20px;
     border: 0.5px solid rgb(230, 219, 219);
     box-shadow: 5px 5px 5px rgb(185, 183, 183);
     text-align: center;
+    margin-bottom: 20px;
 }
 .course-card-list{
+    flex: 3;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    width: 100%;
     padding: 0px 20px;
     
 }
+
+.program-section {
+    padding: 20px;
+    border: 0.5px solid rgb(230, 219, 219);
+    box-shadow: 5px 5px 5px rgb(185, 183, 183);
+    margin-bottom: 20px; 
+}
+
+.courses-section {
+    padding: 20px;
+    border: 0.5px solid rgb(230, 219, 219);
+    box-shadow: 5px 5px 5px rgb(185, 183, 183);
+}
+
 .st-img{
     width: 150px;
     height: 150px;
@@ -26,16 +40,11 @@
 
 .course-card-list{
     flex: 2;
-    margin-top: 20px;
 }
 .course-card{
     border: 0.5px solid rgb(230, 219, 219);
     padding: 20px;
     width: 450px;
-    margin-bottom: 15px;
-    flex: 1 1 30%;
-    min-width: 100%;
-    box-sizing: border-box;
 }
 .btn-delete{
     border: 0;
@@ -63,11 +72,21 @@
     background-color: #387be0;
 }
 
-input[type="text"], select {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    max-width: 300px; 
-    border: 1px solid rgb(230, 219, 219);
+.btn-drop {
+    border: 0;
+    padding: 5px 15px;
     border-radius: 5px;
+    color: white;
+    background-color: rgb(212, 5, 5);
 }
+
+.btn-drop:hover {
+    background-color: rgb(185, 0, 0);
+    color: white;
+}
+
+ul {
+    list-style: none; 
+    padding: 0; 
+}
+

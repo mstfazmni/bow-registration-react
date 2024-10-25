@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ProgramCard from './ProgramCard'; 
+import './SearchProgramsComponent.css';
 
 const SearchProgramsComponent = ({ programs, onProgramAdd }) => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +20,7 @@ const SearchProgramsComponent = ({ programs, onProgramAdd }) => {
     );
 
     return (
-        <div>
+        <div className="search-programs-container">
             <input
                 type="text"
                 placeholder="Search by Program Name"
@@ -40,14 +41,12 @@ const SearchProgramsComponent = ({ programs, onProgramAdd }) => {
                 ))}
             </select>
 
-            <div>
+            <div className="program-card-list">
             {filteredPrograms.length > 0 ? (
                     filteredPrograms.map(program => (
                         <ProgramCard 
                             key={program.Code} 
                             {...program} 
-                            showAddButton 
-                            onAdd={onProgramAdd}
                         />
                     ))
                 ) : (

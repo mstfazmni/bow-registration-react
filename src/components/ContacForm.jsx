@@ -1,5 +1,6 @@
 // src/components/ContactForm.js
 import React, { useState } from 'react';
+import './ContactForm.css';
 
 const ContactForm = ({ onSend }) => {
   const [message, setMessage] = useState('');
@@ -13,14 +14,14 @@ const ContactForm = ({ onSend }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit}>
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Write your message..."
         required
       />
-      <button type="submit">Send</button>
+      <button className="send-button" type="submit">Send</button>
     </form>
   );
 };

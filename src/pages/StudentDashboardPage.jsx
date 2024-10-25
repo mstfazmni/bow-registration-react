@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './StudentDashboardPage.css'; 
-import ContactForm from '../components/ContacForm';
+import ContactForm from '../components/ContactForm';
 
-const StudentDashboardPage = ({ studentFirstName, studentLastName, studentEmail, chosenCourses, selectedProgram, onCourseDrop }) => {
+const StudentDashboardPage = ({ chosenCourses, selectedProgram, onCourseDrop }) => {
         const [selectedCourse, setSelectedCourse] = useState(null);
+        const [studentFirstName, setStudentFirstName] = useState('');
+        const [studentLastName, setStudentLastName] = useState('');
+        const [studentEmail, setStudentEmail] = useState('');
         const [showContactForm, setShowContactForm] = useState(false);
         const [messages, setMessages] = useState([]);
+
+        useEffect(() => {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                setStudentFirstName(user.firstname);
+                setStudentLastName(user.lastname);
+                setStudentEmail(user.email);
+            }
+        }, []);
 
         const handleCourseSelection = (course) => {
             if (selectedProgram && selectedProgram.Program === course.Program) {
@@ -23,14 +35,18 @@ const StudentDashboardPage = ({ studentFirstName, studentLastName, studentEmail,
           };
         
 
+          const programInfo = JSON.parse(localStorage.getItem('loggedInUser'))
+
     return (
         <div className='dashboard-container'>
             <div className='st-info'>
-                <img 
+               {/* <img 
                     className='st-img' 
                     src='https://media.istockphoto.com/id/1438969575/photo/smiling-young-male-college-student-wearing-headphones-standing-in-a-classroom.jpg?s=612x612&w=0&k=20&c=yNawJP9JGXU6LOL262ME5M1U2xxNKQsvT7F9DZhZCh4=' 
                     alt="Student"
                 />
+                //upload profile img can be implemented in phase 2
+                */}
                 <p className='st-fname'>First Name: {studentFirstName}</p>
                 <p className='st-lName'>Last Name: {studentLastName}</p>
                 <p className='st-eMail'>E-mail: {studentEmail}</p>
@@ -42,19 +58,16 @@ const StudentDashboardPage = ({ studentFirstName, studentLastName, studentEmail,
 
             <div className='program-section'>
             <h2> Program</h2>
-                {selectedProgram && (
+                
                     <div>
-                        <p>Code: {selectedProgram.Code}</p>
-                        <p>Program: {selectedProgram.Program}</p>
-                        <p>Department: {selectedProgram.Department}</p>
-                        <p>Term: {selectedProgram.Term}</p>
-                        <p>Description: {selectedProgram.Description}</p>
-                        <p>Start Date: {selectedProgram.StartDate}</p>
-                        <p>End Date: {selectedProgram.EndDate}</p>
-                        <p>Fees: {selectedProgram.Fees}</p>
+                        <p>Code: {"SODV2024"}</p>
+                        <p>Program: {programInfo.program}</p>
+                        <p>Department: {"Software Development"}</p>
+                        <p>Term: {programInfo.term}</p>
+                        <p>Description: {"blah blah"}</p>
                     </div>
                 
-                )}
+              
             </div>
 
             <div className='courses-section'>
