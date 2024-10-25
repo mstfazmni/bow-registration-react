@@ -1,54 +1,101 @@
-import React, { useEffect,useState } from 'react';
-import { Link } from 'react-router-dom';
-import './StudentDashboardPage.css';
-import CourseCard from '../components/CourseCard';
+import React, { useState, useEffect} from 'react';
+import './StudentDashboardPage.css'; 
+import ContactForm from '../components/ContactForm';
 
-const StudentDashboardPage = ({studentFirstName, studentLastName, studentEmail, chosenCourses, onDelete}) => {
+const StudentDashboardPage = ({ chosenCourses, selectedProgram, onCourseDrop }) => {
+        const [selectedCourse, setSelectedCourse] = useState(null);
+        const [studentFirstName, setStudentFirstName] = useState('');
+        const [studentLastName, setStudentLastName] = useState('');
+        const [studentEmail, setStudentEmail] = useState('');
+        const [showContactForm, setShowContactForm] = useState(false);
+        const [messages, setMessages] = useState([]);
 
-    
-    useEffect(() => {
-        console.log(chosenCourses); 
-      }, [chosenCourses]);
+        useEffect(() => {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                setStudentFirstName(user.firstname);
+                setStudentLastName(user.lastname);
+                setStudentEmail(user.email);
+            }
+        }, []);
 
+        const handleCourseSelection = (course) => {
+            if (selectedProgram && selectedProgram.Program === course.Program) {
+                setSelectedCourse(course);
+            } else {
+                alert("The selected course does not match the chosen program.");
+            }
+        };
+        
+        const handleSendMessage = (message) => {
+            const existingMessages = JSON.parse(localStorage.getItem('messages')) || [];
+            localStorage.setItem('messages', JSON.stringify([...existingMessages, message]));
+            setMessages((prevMessages) => [...prevMessages, message]);
+            alert('Message sent!');
+          };
+        
 
+          const programInfo = JSON.parse(localStorage.getItem('loggedInUser'))
 
-    return(
+    return (
         <div className='dashboard-container'>
-                <div className='st-info'>
-                    <img className='st-img' src='https://media.istockphoto.com/id/1438969575/photo/smiling-young-male-college-student-wearing-headphones-standing-in-a-classroom.jpg?s=612x612&w=0&k=20&c=yNawJP9JGXU6LOL262ME5M1U2xxNKQsvT7F9DZhZCh4='></img>
-                    <p className='st-fname'>First Name: {studentFirstName}</p>
-                    <p className='st-lName'>Last Name: {studentLastName}</p>
-                    <p className='st-eMail'>E-mail: {studentEmail}</p>
-                    <Link to='/registration'>
-                    <button className='btn-registration'>Registration</button>
-                    </Link> 
-                    
-                    <br></br>
+            <div className='st-info'>
+               {/* <img 
+                    className='st-img' 
+                    src='https://media.istockphoto.com/id/1438969575/photo/smiling-young-male-college-student-wearing-headphones-standing-in-a-classroom.jpg?s=612x612&w=0&k=20&c=yNawJP9JGXU6LOL262ME5M1U2xxNKQsvT7F9DZhZCh4=' 
+                    alt="Student"
+                />
+                //upload profile img can be implemented in phase 2
+                */}
+                <p className='st-fname'>First Name: {studentFirstName}</p>
+                <p className='st-lName'>Last Name: {studentLastName}</p>
+                <p className='st-eMail'>E-mail: {studentEmail}</p>
+                
+                <br />
+                <button className='btn-contact' onClick={() => setShowContactForm(!showContactForm)}>Contact</button>
+                {showContactForm && <ContactForm onSend={handleSendMessage} />}
+            </div>
 
-                    <button className='btn-contact'>Contact</button>
+            <div className='program-section'>
+            <h2> Program</h2>
+                
+                    <div>
+                        <p>Code: {"SODV2024"}</p>
+                        <p>Program: {programInfo.program}</p>
+                        <p>Department: {"Software Development"}</p>
+                        <p>Term: {programInfo.term}</p>
+                        <p>Description: {"blah blah"}</p>
+                    </div>
+                
+              
+            </div>
 
-                    {/* Displaying the courses which were chosen by the st */}
-                </div>
-                <div className='course-card-list'>
-                        {chosenCourses.map((course) => (
-                            <CourseCard
-                            key = {course.id}
-                            id = {course.id}
-                            Programs = {course.Programs}
-                            Terms = {course.Terms}
-                            Descriptions = {course.Descriptions}
-                            StartDate={course.StartDate} 
-                            EndDate={course.EndDate} 
-                            Fees={course.Fees}
-                            showDeleteButton = {true}
-                            onDelete={ ()=> onDelete(course.id)}
-                            />
-                        ))
-                        }
-                </div>
+            <div className='courses-section'>
+                <h2>Your Courses</h2>
+                {chosenCourses.length > 0 ? (
+                    <ul>
+                        {chosenCourses.map(course => (
+                            <li key={course.Code}>
+                                <h4>{course.Course}({course.Code})</h4>
+                                {/*details for courses will be added in backend*/}
+                                <p>{course.Description}</p>
+                                <p>{course.StartDate}</p>
+                                <p>{course.EndDate}</p>
+                                <button 
+                                    className='btn-drop' 
+                                    onClick={() => onCourseDrop(course.Code)}
+                                >
+                                    Drop
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No courses chosen.</p>
+                )}
+            </div>
         </div>
-
     );
-}
+};
 
 export default StudentDashboardPage;

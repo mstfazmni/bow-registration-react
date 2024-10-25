@@ -1,18 +1,20 @@
-import React from "react";
+import React from 'react';
 
-const CourseCard = ({id,Programs,Terms,Descriptions, StartDate, EndDate, Fees, showDeleteButton, showAddButton,onDelete,onAdd}) => {
     
-    return(
+
+const CourseCard = ({key,id,Course,Code, Program, Term, Description, StartDate, EndDate, showEditButton, showDeleteButton, onEdit, onDelete, onAdd}) => {
+    return (
         <div className="course-card">
-            <p>id: {id}</p>
-            <h2>{Programs}</h2>
-                <p>Term: {Terms}</p>
-                <p>Description: {Descriptions}</p>
-                <p>Start Date: {StartDate}</p>
-                <p>End Date: {EndDate}</p>
-                <p>Fees: {Fees}</p>
-                {showDeleteButton && <button className="btn-delete" onClick={onDelete}>Delete</button>}
-                {showAddButton && <button className="btn-add" onClick={onAdd}>Add</button>}        
+            <h2>{Course}</h2>
+            <p>Code: {Code}</p>
+            <p>Program: {Program}</p>
+            <p>Term: {Term}</p>
+            <p>Start Date: {StartDate}</p>
+            <p>End Date: {EndDate}</p>
+            <p>Description: {Description}</p>
+            {!showEditButton && <button onClick={() => onAdd({ Course,Code, Program , Term, StartDate, EndDate, Description})}>Add</button>}
+            {showEditButton && <button className='btn-edit' onClick={onEdit}>Edit</button>}
+            {showDeleteButton && <button className='btn-delete' onClick={onDelete}>Delete</button>}
         </div>
     );
 };
