@@ -1,0 +1,122 @@
+[
+    {
+        "Code": "SODV2201",
+        "Department": "Software Development",
+        "Program": "Diploma (2 years)",
+        "Term": "Fall 2024",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2024-09-01",
+        "EndDate": "2025-05-31",
+        "Fees": 5000
+    },
+    {
+        "Code": "SODV2202",
+        "Department": "Software Development",
+        "Program": "Diploma (2 years)",
+        "Term": "Winter 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-01-10",
+        "EndDate": "2025-04-30",
+        "Fees": 6000
+    },
+    {
+        "Code": "SODV2203",
+        "Department": "Software Development",
+        "Program": "Diploma (2 years)",
+        "Term": "Spring 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-03-01",
+        "EndDate": "2025-06-30",
+        "Fees": 7000
+    },
+    {
+        "Code": "SODV2204",
+        "Department": "Software Development",
+        "Program": "Diploma (2 years)",
+        "Term": "Summer 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-06-01",
+        "EndDate": "2025-08-31",
+        "Fees": 8000
+    },
+    {
+        "Code": "SODV2205",
+        "Department": "Software Development",
+        "Program": "Post-Diploma (1 year)",
+        "Term": "Fall 2024",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2024-09-01",
+        "EndDate": "2025-05-31",
+        "Fees": 4500
+    },
+    {
+        "Code": "SODV2206",
+        "Department": "Software Development",
+        "Program": "Post-Diploma (1 year)",
+        "Term": "Winter 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-01-15",
+        "EndDate": "2025-04-30",
+        "Fees": 6500
+    },
+    {
+        "Code": "SODV2207",
+        "Department": "Software Development",
+        "Program": "Post-Diploma (1 year)",
+        "Term": "Spring 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-03-01",
+        "EndDate": "2025-06-30",
+        "Fees": 7500
+    },
+    {
+        "Code": "SODV2208",
+        "Department": "Software Development",
+        "Program": "Post-Diploma (1 year)",
+        "Term": "Summer 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-06-10",
+        "EndDate": "2025-08-30",
+        "Fees": 6200
+    },
+    {
+        "Code": "SODV2209",
+        "Department": "Software Development",
+        "Program": "Certificate (6 months)",
+        "Term": "Fall 2024",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2024-09-01",
+        "EndDate": "2025-05-31",
+        "Fees": 6000
+    },
+    {
+        "Code": "SODV2210",
+        "Department": "Software Development",
+        "Program": "Certificate (6 months)",
+        "Term": "Winter 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-01-12",
+        "EndDate": "2025-04-28",
+        "Fees": 6500
+    },
+    {
+        "Code": "SODV2211",
+        "Department": "Software Development",
+        "Program": "Certificate (6 months)",
+        "Term": "Spring 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-03-01",
+        "EndDate": "2025-06-30",
+        "Fees": 7000
+    },
+    {
+        "Code": "SODV2212",
+        "Department": "Software Development",
+        "Program": "Certificate (6 months)",
+        "Term": "Summer 2025",
+        "Description": "Gain the skills you need to create the latest computer, mobile, and gaming applications. Prepare to transform your ideas into reality all while developing your problem-solving skills.",
+        "StartDate": "2025-06-05",
+        "EndDate": "2025-08-30",
+        "Fees": 5500
+    }
+]

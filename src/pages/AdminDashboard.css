@@ -1,0 +1,12 @@
+/* AdminDashboardPage.css */
+
+.admin-dashboard {
+    display: flex;
+}
+
+.admin-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 100px; /* Adjust the value as needed */
+    text-align: left;
+}
