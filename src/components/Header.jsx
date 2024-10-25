@@ -41,19 +41,24 @@ const Header = () => {
                                             onClick={toggleDropdown} 
                                             style={{ 
                                                 cursor: 'pointer', fontSize: '15px', padding: '10px 10px', backgroundColor: 'none', color: 'white' }}>
-                                            <span>Admin</span>
+                                            <span className="material-icons text-white">account_circle</span>
                                         </div>
                                                 
                                         <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown">
-                                            <Link className="dropdown-item" to="/admin">
+                                        <Link className="dropdown-item" to="/admin">
+                                                <span className="material-icons dropdown-icon">dashboard</span>
                                                 Dashboard</Link>
                                             <Link className="dropdown-item" to="/admin/profile">
+                                                <span className="material-icons dropdown-icon">person</span> 
                                                 Profile</Link>
                                             <Link className="dropdown-item" to="/admin/courses">
+                                                <span className="material-icons dropdown-icon">school</span>
                                                 Courses</Link>
-                                            <Link className="dropdown-item" to="/admin/students"> 
+                                            <Link className="dropdown-item" to="/admin/students">
+                                                <span className="material-icons dropdown-icon">groups</span> 
                                                 Student List</Link>
                                             <Link className="dropdown-item" to="/admin/forms">
+                                                <span className="material-icons dropdown-icon">description</span> 
                                                 Forms</Link>
                                         </div>
                                     </li>
