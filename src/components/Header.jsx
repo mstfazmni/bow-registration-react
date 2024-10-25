@@ -1,74 +1,67 @@
 import React from "react";
-// Import Link from react-router-dom to use bootstrap and replacing <a href="#"> with <Link to="/">
-import { Link } from "react-router-dom";
-import './Header.css'; 
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import './Header.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = () => {
+
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    //const navigate = useNavigate();
+    const location = useLocation();
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!isDropdownOpen);
+    };
+
+    const isAdminPage = location.pathname.startsWith('/admin');
+
+    //Close dropdown when route changes
+    useEffect(() => {
+        setDropdownOpen(false);
+    }, [location]);
+
     return (
         <div>
             <div className="b-example-divider"></div>
-
             <header>
                 <div className="px-3 py-2 bg-dark text-white">
                     <div className="container">
-                        
                         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                            <Link
-                                to="/"
-                                className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+                            <Link to="/" className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
                             >
-                                <svg
-                                    className="bi me-2"
-                                    width="40"
-                                    height="32"
-                                    role="img"
-                                    aria-label="Bootstrap"
-                                >
-                                    <use xlinkHref="#bootstrap" />
-                                </svg>
-                                <img className="bow-home-icon" src="https://cdn.prod.website-files.com/6475eb90c59d6bd3bc835d50/648b5df6bca32974dd79ac54_logo%2Bwhite-1.png" alt="Bow-Valley"></img>
-                            </Link>
-                            
-                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                            <li>
-                                    <Link to="/courselisting" className="nav-link text-white">
-                                        <svg
-                                            className="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
-                                        >
-                                            <use xlinkHref="#speedometer2" />
-                                        </svg>
-                                        Programs
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/dashboard" className="nav-link text-white">
-                                        <svg
-                                            className="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
-                                        >
-                                            <use xlinkHref="#speedometer2" />
-                                        </svg>
-                                        Login
-                                    </Link>
-                                </li>
+                                <img className="bow-home-icon" src="https://cdn.prod.website-files.com/6475eb90c59d6bd3bc835d50/648b5df6bca32974dd79ac54_logo%2Bwhite-1.png" alt="Bow-Valley" />
+                            </Link>                                
+                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">                        
+                                        
+                                {/* Admin Account Dropdown */}
+                                {isAdminPage && (
+                                    <li className="nav-item dropdown">
+                                        <div 
+                                            className="profile-icon" 
+                                            onClick={toggleDropdown} 
+                                            style={{ 
+                                                cursor: 'pointer', fontSize: '15px', padding: '10px 10px', backgroundColor: 'none', color: 'white' }}>
+                                            <span>Admin</span>
+                                        </div>
+                                                
+                                        <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown">
+                                            <Link className="dropdown-item" to="/admin">
+                                                Dashboard</Link>
+                                            <Link className="dropdown-item" to="/admin/profile">
+                                                Profile</Link>
+                                            <Link className="dropdown-item" to="/admin/courses">
+                                                Courses</Link>
+                                            <Link className="dropdown-item" to="/admin/students"> 
+                                                Student List</Link>
+                                            <Link className="dropdown-item" to="/admin/forms">
+                                                Forms</Link>
+                                        </div>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </div>
-                </div>
-                {/* <div className="px-3 py-2 border-bottom mb-3">
-                    <div className="container d-flex flex-wrap justify-content-center">
-
-                        <div className="text-end">
-                            <button type="button" className="btn btn-light text-dark me-2">
-                                Login
-                            </button>
-                            
-                        </div>
-                    </div>
-                </div> */}
+                </div>   
             </header>
         </div>
     );
