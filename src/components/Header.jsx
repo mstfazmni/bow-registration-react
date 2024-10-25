@@ -1,13 +1,26 @@
 import React from "react";
+import  {useEffect,useState} from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Header = () => {
-
+const Header = ({ logInName, selectedProgram, onLogout, isLoggedIn , isGuest}) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const location = useLocation();
+
+    const handleCoursesClick = () => {
+        navigate("/courselisting");
+    };
+
+    const handleLogout = () => {
+        if(logInName){
+        onLogout();
+        }
+        else{
+            navigate("/signup");  
+        }
+    };
 
     const toggleDropdown = () => {
         setDropdownOpen(!isDropdownOpen);
@@ -31,7 +44,32 @@ const Header = () => {
                             >
                                 <img className="bow-home-icon" src="https://cdn.prod.website-files.com/6475eb90c59d6bd3bc835d50/648b5df6bca32974dd79ac54_logo%2Bwhite-1.png" alt="Bow-Valley" />
                             </Link>                                
-                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">                        
+                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                                {isGuest && <li>
+                                    <Link to="/programlisting" className="nav-link text-white">
+                                        Programs
+                                    </Link>
+                                </li>
+                                }
+                                { !isGuest &&
+                                <li>
+                                    <button className="nav-link text-white bg-transparent border-0" onClick={handleCoursesClick}>
+                                        Courses
+                                    </button>
+                                </li>
+                                }
+                                <li>
+                                <Link to="/signup" className="nav-link text-white" onClick={handleLogout}>
+                                        {logInName}
+                                    </Link>
+                                 </li>
+                                 { !isAdminPage && !isGuest &&<li>
+                                    <Link to="/studentdashboard" className="nav-link text-white">
+                                        Dashboard
+                                    </Link>
+                                
+                                </li>
+                                }                     
                                         
                                 {/* Admin Account Dropdown */}
                                 {isAdminPage && (
